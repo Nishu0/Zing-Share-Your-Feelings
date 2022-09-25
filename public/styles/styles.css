@@ -1,0 +1,20 @@
+/* card header */
+.card-header{
+    color: white;
+}
+
+#Work {
+    background-color: gray;
+}
+
+#Education {
+    background-color: green;
+}
+
+#Healthcare {
+    background-color: pink;
+}
+
+#Legal {
+    background-color: blueviolet;
+}

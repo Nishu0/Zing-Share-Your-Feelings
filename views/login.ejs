@@ -1,0 +1,26 @@
+<%- include('partials/header-admin.ejs') %> 
+<body>
+    <header>
+        <div class="center">
+            <div class="logo">
+                <i class="fa-solid fa-newspaper"></i>
+                <h2><a href="/login">Zing<span style="font-weight: 300;">-Share Feelings</span></a></h2>
+            </div>
+        </div>
+    </header>
+    <section class="login-form">
+        <div class="top-form">
+            <h1>Login</h1>
+        </div>
+        <form method="post">
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <input type="submit" name="submit" value="Login" />
+            <p id="error-message">Email or password incorret!</p>
+            <a href="register"><p>Register</p></a>
+            <a href="forgot-password"><p>Forgot Password</p></a>
+
+        </form>
+    </section>
+</body>
+</html>

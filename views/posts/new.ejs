@@ -1,0 +1,45 @@
+<%-  include('../partials/head') %> 
+<%-  include('../partials/nav') %> 
+    <body>
+        <div class="container">
+            <form action="/posts" method="post">
+                
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input type="text" name="title" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Photo</label>
+                    <input type="text" name="photo" class="form-control" >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="category">Select Category</label>
+                    <select class="form-select" name="category" id="category">
+                        <% for(let category of categories){ %> 
+                            <option value="<%=category%>"><%=category%></option>
+                        <% } %> 
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <textarea type="text" name="post" class="form-control" ></textarea>
+                </div>
+                <button class="btn btn-primary">Add a post</button>
+            </form>
+            <br>
+            <button class="btn btn-secondary">
+                <a class="nav-link active" aria-current="page" href="/posts">
+                    Go Back
+                </a>
+            </button>
+        </div>
+
+    </body>
+<%-  include('../partials/footer') %> 
+
+
+

@@ -1,0 +1,50 @@
+<%-  include('../partials/head') %> 
+<%-  include('../partials/nav') %> 
+    <body>
+        <div class="container">
+            <nav class="navbar bg-white" action="/posts" method="get">
+                <div class="container-fluid">
+                    <!-- <form action="/posts" method="get" class="d-flex" >
+                        <input type="search" name="title" class="form-control me-2" placeholder="Search post" aria-label="Search" >
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form> -->
+                    <button class="btn btn-primary">
+                        <a class="nav-link active" aria-current="page" href="/posts/new">
+                            Add a new post
+                        </a>
+                    </button>
+                </div>
+            </nav>
+            <form action="/posts?category=<%=category%>" method="get">
+                <div class="mb-3">
+                    <label class="form-label" for="category">Sort by Category</label>
+                    <select class="form-select" name="category" id="category">
+                        <% for(let category of categories){ %> 
+                            <option value="<%=category%>" <%=posts[0] && posts[0].category === category ? "selected": ""%>><%=category%></option>
+                        <% } %>
+                        <option value="All" <%=category === "All" ? "selected": ""%>>All</option>
+                    </select>
+                </div>
+                <button class="btn btn-outline-success" type="submit">Ok</button>
+            </form>
+            <h2><%=category%> posts</h2>
+            <div class="">
+                <div class="row">
+                    <% for(let post of posts) { %> 
+                        <div class="card mt-2 me-2" style="width: 18rem; padding: 0">
+                            <img class="card-img-top"  src="<%= post.photo %>"  alt="sample image">   
+                            <div class="card-header" id=<%=post.category%> >
+                                <strong><%=post.category%></strong>
+                            </div>               
+                            <div class="card-body">
+                            <h5 class="card-title"><%= post.title %></h5>
+                            <p class="card-text">by <%= post.username %></p>
+                            <a href="/posts/<%= post._id%>" class="btn btn-outline-primary" id="button-<%=post.category%>">Go to the post</a>
+                            </div>
+                        </div>
+                    <% } %> 
+                </div>
+            </div>
+        </div>
+    </body>
+<%-  include('../partials/foot') %> 

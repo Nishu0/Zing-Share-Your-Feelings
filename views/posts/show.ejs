@@ -1,0 +1,22 @@
+<%-  include('../partials/head') %> 
+<%-  include('../partials/nav') %> 
+    <body>
+        <div class="container">
+            <img src="<%= post.photo %>" class="img-fluid" alt="sample image">
+            <h3 class="mt-2"><%= post.title%></h3>
+            <p><strong>by <%= post.username%></strong> in <a href="/posts?category=<%=post.category%>"><%=post.category%></a> category</p> 
+            <p><%=post.post%></p>
+            <a href="/posts/<%= post._id%>/edit" class="btn btn-outline-warning mt-2">
+                Edit the post
+            </a>
+            <form method="POST" action="/posts/<%= post._id%>?_method=DELETE">
+                <button class="btn btn-outline-danger mt-2" type="submit">
+                    Delete the post
+                </button>
+            </form>
+            <a class="btn btn-outline-secondary mt-2" href="/posts">
+                Go to All Posts
+            </a>
+        </div>
+    </body>
+<%-  include('../partials/footer') %> 

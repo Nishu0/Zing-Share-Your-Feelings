@@ -1,0 +1,42 @@
+<%-  include('../partials/head') %> 
+<%-  include('../partials/nav') %> 
+    <body>
+        <div class="container">
+            <h3 class="mt-2">Edit Post</h3>
+            <p><strong> by <%= post.username%></strong> in <%= post.category %> category</p>
+            <img src="<%= post.photo %>" class="img-fluid"  alt="sample image">
+            <form method="POST" action="/posts/<%= post._id%>?_method=PUT">
+                <div class="mb-3">
+                    <label class="form-label"><strong>Your username</strong></label>
+                    <input type="text" name="username" class="form-control" value="<%=post.username%>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><strong>Photo</strong></label>
+                    <input type="text" name="photo" class="form-control" value="<%=post.photo%>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="category"><strong>Select Category</strong></label>
+                    <select class="form-select" name="category" id="category">
+                        <% for(let category of categories) { %> 
+                        <option value="<%=category%>" <%= post.category === category ? "selected": "" %> ><%=category%></option>
+                        <% } %> 
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><strong>Title</strong></label>
+                    <input type="text" name="title" class="form-control" value="<%=post.title%>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label"><strong>Message</strong></label>
+                    <textarea name="post" class="form-control" cols="30" rows="10"><%=post.post%></textarea>
+                </div>
+                <button class="btn btn-primary mt-2" type="submit">Save</button>
+            </form>
+            <button class="btn btn-secondary mt-2">
+                <a class="nav-link active" aria-current="page" href="/posts/<%=post._id%> ">
+                    Cancel
+                </a>
+            </button>
+        </div>
+    </body>
+<%-  include('../partials/footer') %> 
